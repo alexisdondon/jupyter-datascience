@@ -1,4 +1,4 @@
-FROM jupyter/datascience-notebook:lab-1.2.5
+FROM jupyter/datascience-notebook:lab-3.1.12
 
 USER root
 
