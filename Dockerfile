@@ -2,9 +2,9 @@ FROM jupyter/datascience-notebook:python-3.9.7
 
 USER root
 
-ARG SPARK_VERSION=3.1.2
+ARG SPARK_VERSION=3.2.0
 ARG HADOOP_VERSION=3.3.1
-ARG HIVE_VERSION=2.3.7
+ARG HIVE_VERSION=2.3.9
 
 ARG HADOOP_URL="https://downloads.apache.org/hadoop/common/hadoop-${HADOOP_VERSION}"
 ARG HADOOP_AWS_URL="https://repo1.maven.org/maven2/org/apache/hadoop/hadoop-aws"
