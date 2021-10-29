@@ -2,8 +2,6 @@ name: Dockerize
 
 on:
   push:
-    tags:
-      - "*"
     branches:
       - dev
 
@@ -12,11 +10,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Docker meta
-        id: docker_meta
-        uses: docker/metadata-action@v3
-        with:
-          images: inseefrlab/jupyter-datascience
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v1
       - name: Set up Docker Buildx
@@ -33,7 +26,6 @@ jobs:
           context: .
           file: ./Dockerfile
           push: ${{ github.event_name != 'pull_request' }}
-          tags: ${{ steps.docker_meta.outputs.tags }}
-          labels: ${{ steps.docker_meta.outputs.labels }}
+          tags: inseefrlab/jupyter-datascience:dev
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
